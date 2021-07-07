@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <title>AoV - Dashboard Mockup</title>
+  <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/bulma/0.4.1/css/bulma.min.css'>
+<link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css'><link rel="stylesheet" href="./style.css">
+  <style type="text/css">
+    .rows:not(.is-desktop) .row > * {
+      margin-bottom: 1.5rem;
+    }
+    .app-green {
+      color: #007a68;
+    }
+    nav.nav {
+      background-color: #ecf9f7;
+    }
+    #app-name {
+      font-weight: bold;
+      /* color: #00d1b2; */
+      color: #007a68;
+      font-size: 1.5em;
+    }
+    /* #date {
+      margin-left: 0.5em;
+    } */
+    aside.sidebar {
+      display: flex;
+    }
+    aside.sidebar > .section {
+      display: flex;
+      flex: 1;
+      flex-direction: column;
+    }
+    /* aside.sidebar > .section > * {
+      background-color: #f0f0f0;
+    } */
+    aside.sidebar > .section > .menu-container {
+      /* background-color: #f0f0f0; */
+      /* border-radius: 4px; */
+      display: flex;
+      flex: 1;
+      flex-direction: column;
+      justify-content: space-between;
+      overflow: hidden;
+    }
+    aside.sidebar > .section > .menu-container .menu-list a {
+      border-radius: 0;
+      text-align: center;
+    }
+    aside.sidebar > .section > .menu-container .menu-list a:link,
+    aside.sidebar > .section > .menu-container .menu-list a:visited {
+      background-color: #007a68;
+      color: #ffffff;
+      font-weight: bold;
+      text-transform: uppercase;
+    }
+    aside.sidebar > .section > .menu-container .menu-list a:hover {
+      background-color: #00a38b;
+    }
+    aside.sidebar > .section > .menu-container .menu-list a:active {
+      background-color: #006657;
+    }
+    #user-avatar {
+      align-items: center;
+      display: flex;
+      justify-content: center;
+      padding: 1.5rem;
+    }
+    #user-avatar > img {
+      border-radius: 100%;
+    }
+    /* .main-content {
+      padding-top: .75rem;
+    } */
+    .card {
+      border-radius: 4px;
+      box-shadow: 0 5px 15px -5px rgb(10 10 10 / 20%);
+      overflow: hidden;
+    }
+    .card .card-header-title {
+      background-color: #d6f5f0;
+      color: #007a68;
+    }
+    /* .card .card-content {
+      border-color: #f2f2f2;
+      border-radius: 0 0 2px 2px;
+      border-style: solid;
+      border-width: 0 1px 1px 1px;
+    } */
+    @media screen and (min-width: 769px), print {
+      .rows:not(.is-desktop) .row {
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        /* flex-direction: row; */
+        margin-bottom: 1.5rem;
+      }
+      .rows:not(.is-desktop) .row:last-child {
+        margin-bottom: 0;
+      }
+      .rows:not(.is-desktop) .row > * {
+        flex: 1;
+        margin-bottom: 0;
+        margin-left: 1.5rem;
+      }
+      .rows:not(.is-desktop) .row > *:first-child {
+        margin-left: 0;
+      }
+      aside.sidebar > .section {
+        /* padding-left: 0; */
+        padding-right: 0;
+      }
+      aside.sidebar > .section > .menu-container {
+        background-color: #f0f0f0;
+        border-radius: 4px;
+      }
+      #user-avatar {
+        padding-top: 0;
+      }
+    }
+    @media screen and (max-width: 768px) {
+      aside.sidebar {
+        padding-bottom: 0;
+      }
+      aside.sidebar > .section {
+        padding-bottom: 0;
+        padding-top: 1.5rem;
+      }
+      #user-avatar {
+        margin-bottom: 0.75rem;
+        padding: 3rem;
+      }
+      aside.sidebar > .section > .menu-container .menu-list li {
+        margin-top: 0.75rem;
+      }
+      aside.sidebar > .section > .menu-container .menu-list:first-child li:first-child {
+        margin-top: 0;
+      }
+      aside.sidebar > .section > .menu-container .menu-list a {
+        border-radius: 4px;
+        padding: 0.75rem;
+      }
+      #grid > .section {
+        padding-bottom: 1.5rem;
+      }
+    }
+  </style>
+  <script type="text/javascript">
+    document.addEventListener('DOMContentLoaded', function (event) {
+      "use strict";
+      var months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
+      function getDate() {
+        var dateObj = new Date(),
+            month = dateObj.getUTCMonth(), // months from 1-12, 0-11
+            day = dateObj.getUTCDate(),
+            year = dateObj.getUTCFullYear();
+        return months[month] + ' ' + day + ', ' + year;
+      }
+      document.getElementById('date').innerText = getDate();
+    });
+  </script>
+</head>
+<body>
+<!-- partial:index.partial.html -->
+  <div id="app">
+    
+<nav class="nav has-shadow">
+  <div class="container">
+    <div class="nav-left">
+      <a id="app-name" class="nav-item">
+        AoV Evaluation
+      </a>
+    </div>
+    <!-- <label for="menu-toggle" class="nav-toggle">
+      <span></span>
+      <span></span>
+      <span></span>
+    </label>
+    <input type="checkbox" id="menu-toggle" class="is-hidden"/> -->
+    <div class="nav-right" data-class="nav-right nav-menu">
+      <!-- <a class="nav-item is-tab is-hidden-tablet">
+        <span class="icon"><i class="fa fa-home"></i></span> Home
+      </a>
+      <a class="nav-item is-tab is-hidden-tablet">
+        <span class="icon"><i class="fa fa-table"></i></span> Links
+      </a>
+      <a class="nav-item is-tab is-hidden-tablet">
+        <span class="icon"><i class="fa fa-info"></i></span> About
+      </a> -->
+      <span class="nav-item"><span>Today is&nbsp;</span><b id="date" class="app-green"></b></span>
+      <!-- <a class="nav-item is-tab is-active">
+        <span class="icon"><i class="fa fa-user"></i></span>
+      </a> -->
+      <a class="nav-item is-tab" title="Sign Out">
+        <span class="icon"><i class="fa fa-sign-out"></i></span>
+      </a>
+    </div>
+  </div>
+</nav>
+
+<section class="main-content container is-fullheight">
+
+  <div class="columns">
+    <aside
+      class="column is-3 is-narrow-mobile is-fullheight sidebar"
+      data-class="column is-2 is-narrow-mobile is-fullheight section is-hidden-mobile"
+    >
+
+      <div class="section">
+      <!-- <p class="menu-label is-hidden-touch">Navigation</p> -->
+      <div id="user-avatar"><img src="./images/user-avatar.jpg" alt="user avatar" title="User Avatar" /></div>
+
+      <div class="menu-container">
+        <ul class="menu-list">
+          <li>
+            <a href="#" class="">Completed</a>
+          </li>
+          <li>
+            <a href="#" class="">Pending</a>
+          </li>
+          <li>
+            <a href="#" class="">Due</a>
+          </li>
+        </ul>
+        <ul class="menu-list">
+          <li>
+            <a href="#" class="">New Agent</a>
+          </li>
+          <li>
+            <a href="#" class="">Summary</a>
+          </li>
+        </ul>
+      </div>
+
+      </div>
+    </aside>
+
+    <div id="grid" class="container column is-9">
+
+      <div class="section rows">
+
+        <div class="row">
+          <div class="card">
+            <div class="card-header"><p class="card-header-title">January</p></div>
+            <div class="card-content"><div class="content">Content</div></div>
+          </div>
+          <div class="card">
+            <div class="card-header"><p class="card-header-title">February</p></div>
+            <div class="card-content"><div class="content">Content</div></div>
+          </div>
+          <div class="card">
+            <div class="card-header"><p class="card-header-title">March</p></div>
+            <div class="card-content"><div class="content">Content</div></div>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="card">
+            <div class="card-header"><p class="card-header-title">April</p></div>
+            <div class="card-content"><div class="content">Content</div></div>
+          </div>
+          <div class="card">
+            <div class="card-header"><p class="card-header-title">May</p></div>
+            <div class="card-content"><div class="content">Content</div></div>
+          </div>
+          <div class="card">
+            <div class="card-header"><p class="card-header-title">June</p></div>
+            <div class="card-content"><div class="content">Content</div></div>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="card">
+            <div class="card-header"><p class="card-header-title">July</p></div>
+            <div class="card-content"><div class="content">Content</div></div>
+          </div>
+          <div class="card">
+            <div class="card-header"><p class="card-header-title">August</p></div>
+            <div class="card-content"><div class="content">Content</div></div>
+          </div>
+          <div class="card">
+            <div class="card-header"><p class="card-header-title">September</p></div>
+            <div class="card-content"><div class="content">Content</div></div>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="card">
+            <div class="card-header"><p class="card-header-title">October</p></div>
+            <div class="card-content"><div class="content">Content</div></div>
+          </div>
+          <div class="card">
+            <div class="card-header"><p class="card-header-title">November</p></div>
+            <div class="card-content"><div class="content">Content</div></div>
+          </div>
+          <div class="card">
+            <div class="card-header"><p class="card-header-title">December</p></div>
+            <div class="card-content"><div class="content">Content</div></div>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </div>
+  
+</section>
+
+<footer class="footer is-hidden">
+  <div class="container">
+    <div class="content has-text-centered">
+      <p>Hello</p>
+    </div>
+  </div>
+</footer>
+    
+  </div>
+<!-- partial -->
+  
+</body>
+</html>
